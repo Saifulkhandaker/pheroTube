@@ -6,7 +6,7 @@ const loadData = async () => {
     category.forEach((category )=> {
     const div = document.createElement("div");
     div.innerHTML = `
-    <a onclick="loadVideos('${category.category_id}')" class="tab"> ${category.category} </a> 
+    <a onclick="loadVideos('${category.category_id}')" class="btn"> ${category.category} </a> 
     `;
     tabContainer.appendChild(div);
     });
