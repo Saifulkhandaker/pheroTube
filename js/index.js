@@ -16,7 +16,7 @@ const loadVideos = async (categoryId) => {
     const response = await fetch (`https://openapi.programming-hero.com/api/videos/category/${categoryId}`);
     const data = await response.json();
     const videos = data.data;
-    console.log(videos);
+
     const cardContainer = document.getElementById('card-container');
     const noCardContainer = document.getElementById('no-card');
     
@@ -28,15 +28,14 @@ const loadVideos = async (categoryId) => {
             const verifiedIcon = videos.authors[0].verified === true ? '<img src="./image/verified.png" alt="Verified">' : '';
             
             const postedDateInSeconds = videos.others?.posted_date || 0;
-            const postedDate = new Date(postedDateInSeconds * 1000);
-            const hours = postedDate.getHours();
-            const minutes = postedDate.getMinutes();
+            const hours = Math.floor(postedDateInSeconds / 3600);
+            const minutes = Math.floor((postedDateInSeconds % 3600) / 60);
             const formattedPostedDate = `${hours}hrs ${minutes} min`;
             
             div.innerHTML = `
             <div class="card bg-base-100 shadow-xl py-2">
               <figure class="h-40 relative"><img src=" ${videos?.thumbnail} " alt="Shoes" /></figure>
-              ${videos.others?.posted_date ? `<p class="absolute ml-56 md:ml-48 lg:ml-36 mt-28 px-2 py-1 bg-[#171717] text-white text-center rounded-lg">${formattedPostedDate} ago</p>` : ''}
+              ${videos.others?.posted_date ? `<p class="absolute ml-48 md:ml-36 lg:ml-28 mt-28 px-2 py-1 bg-[#171717] text-white text-center rounded-lg">${formattedPostedDate} ago</p>` : ''}
                         <div class="flex gap-5 mt-5 mb-2 px-2">
                             <div><img class="h-20 w-20 rounded-full" src="${videos.authors[0].profile_picture}" alt=""></div>
                             <div>
@@ -61,6 +60,7 @@ const loadVideos = async (categoryId) => {
         noCardContainer.appendChild(noVideosDiv);
     }
 };
+
 
 
 loadData();
