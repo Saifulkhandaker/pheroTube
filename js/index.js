@@ -44,8 +44,8 @@ const loadVideos = async (categoryId) => {
             <div class="card bg-base-100 shadow-xl py-2">
               <figure class="h-40 relative"><img src=" ${videos?.thumbnail} " alt="Shoes" /></figure>
               ${videos.others?.posted_date ? `<p class="absolute ml-48 md:ml-36 lg:ml-28 mt-28 px-2 py-1 bg-[#171717] text-white text-center rounded-lg">${formattedPostedDate} ago</p>` : ''}
-                        <div class="flex gap-5 mt-5 mb-2 px-2">
-                            <div><img class="h-20 w-20 rounded-full" src="${videos.authors[0].profile_picture}" alt=""></div>
+                        <div class="flex gap-4 mt-5 mb-2 px-2">
+                            <div><img class="h-12 w-12 rounded-full" src="${videos.authors[0].profile_picture}" alt=""></div>
                             <div>
                             <h2 class="text-lg font-semibold">${videos.title}</h2>
                               <div class="flex gap-2">
@@ -85,8 +85,8 @@ const loadVideos = async (categoryId) => {
             <div class="card bg-base-100 shadow-xl py-2">
               <figure class="h-40 relative"><img src=" ${videos?.thumbnail} " alt="Shoes" /></figure>
               ${videos.others?.posted_date ? `<p class="absolute ml-48 md:ml-36 lg:ml-28 mt-28 px-2 py-1 bg-[#171717] text-white text-center rounded-lg">${formattedPostedDate} ago</p>` : ''}
-                        <div class="flex gap-5 mt-5 mb-2 px-2">
-                            <div><img class="h-20 w-20 rounded-full" src="${videos.authors[0].profile_picture}" alt=""></div>
+                        <div class="flex gap-4 mt-5 mb-2 px-2">
+                            <div><img class="h-12 w-12 rounded-full" src="${videos.authors[0].profile_picture}" alt=""></div>
                             <div>
                             <h2 class="text-lg font-semibold">${videos.title}</h2>
                               <div class="flex gap-2">
